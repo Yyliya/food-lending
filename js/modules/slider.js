@@ -1,16 +1,15 @@
-function slider () {
+function slider ({container,slide, nextArrow, prevArrow, totalCounter, currentCounter, wrapper, field}) {
     
     // slider
 
-
-    const  slides = document.querySelectorAll('.offer__slide'),
-            slider = document.querySelector('.offer__slider'),
-            prev = document.querySelector('.offer__slider-prev'),
-            next = document.querySelector('.offer__slider-next'),
-            current = document.querySelector('#current'),
-            total = document.querySelector('#total'),
-            slidesWrapper = document.querySelector('.offer__slider-wrapper'),
-            slidesField = document.querySelector('.offer__slider-inner'),
+    const  slides = document.querySelectorAll(slide),
+            slider = document.querySelector(container),
+            prev = document.querySelector(prevArrow),
+            next = document.querySelector(nextArrow),
+            current = document.querySelector(currentCounter),
+            total = document.querySelector(totalCounter),
+            slidesWrapper = document.querySelector(wrapper),
+            slidesField = document.querySelector(field),
             width = window.getComputedStyle(slidesWrapper).width;
 
     let slideIndex = 1;
@@ -82,7 +81,6 @@ function slider () {
         dots.push(dot);
     }
 
-
     next.addEventListener('click', () => {
     if (offset == deleteNotDijits(width) * (slides.length - 1)) {
         offset = 0;
@@ -133,7 +131,6 @@ function slider () {
         dots[slideIndex - 1].style.opacity = 1;
     });
 
-
     dots.forEach(dot => {
         dot.addEventListener('click', (e) => {
             const slideTo = e.target.getAttribute('data-slide-to');
@@ -157,7 +154,6 @@ function slider () {
     function deleteNotDijits(str) {
         return +str.replace(/\D/g, '');
     }
-
 }
 
-export default slider;
+export default  slider;

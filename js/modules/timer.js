@@ -1,4 +1,4 @@
-function timer(id, deadLine){
+function timer(id, deadline){
       // Timer
 
     function getTimeRemaining(endtime) {
